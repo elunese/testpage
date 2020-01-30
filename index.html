@@ -1,61 +1,56 @@
-<script>
-function includeHTML() {
-  var z, i, elmnt, file, xhttp;
-  /* Loop through a collection of all HTML elements: */
-  z = document.getElementsByTagName("*");
-  for (i = 0; i < z.length; i++) {
-    elmnt = z[i];
-    /*search for elements with a certain atrribute:*/
-    file = elmnt.getAttribute("include-html");
-    if (file) {
-      /* Make an HTTP request using the attribute value as the file name: */
-      xhttp = new XMLHttpRequest();
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4) {
-          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
-          /* Remove the attribute, and call this function once more: */
-          elmnt.removeAttribute("w3-include-html");
-          includeHTML();
-        }
-      }
-      xhttp.open("GET", file, true);
-      xhttp.send();
-      /* Exit the function: */
-      return;
-    }
-  }
-}
-</script>
-
-<div include-html="layouts/header.html"></div>
-
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Elunese Dev</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<script>
+	function includeHTML() {
+	  var z, i, elmnt, file, xhttp;
+	  /* Loop through a collection of all HTML elements: */
+	  z = document.getElementsByTagName("*");
+	  for (i = 0; i < z.length; i++) {
+	    elmnt = z[i];
+	    /*search for elements with a certain atrribute:*/
+	    file = elmnt.getAttribute("include-html");
+	    if (file) {
+	      /* Make an HTTP request using the attribute value as the file name: */
+	      xhttp = new XMLHttpRequest();
+	      xhttp.onreadystatechange = function() {
+		if (this.readyState == 4) {
+		  if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+		  if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+		  /* Remove the attribute, and call this function once more: */
+		  elmnt.removeAttribute("w3-include-html");
+		  includeHTML();
+		}
+	      }
+	      xhttp.open("GET", file, true);
+	      xhttp.send();
+	      /* Exit the function: */
+	      return;
+	    }
+	  }
+	}
+	</script>
 	<body class="is-preload">
-
+		
 		<!-- Wrapper -->
 			<div id="wrapper">
 
 				<!-- Header -->
-					<header id="header" class="alt">
-						<a href="index.html" class="logo"><strong>Elunese</strong> <span>dev</span></a>
-						<nav>
-							<a href="#menu">Menu</a>
-						</nav>
-					</header>
+					<div include-html="layouts/header.html"></div>
 
 				<!-- Menu -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
+					<div include-html="layouts/nav.html"></div>
 
 				<!-- Banner -->
 					<section id="banner" class="major">
@@ -203,9 +198,22 @@ function includeHTML() {
 						</div>
 					</section>
 				-->
+				
+				<!-- Footer -->
+					<div include-html="layouts/footer.html"></div>
+			</div>
 
-				<div include-html="layouts/footer.html"></div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script>
+				includeHTML();
+			</script>
 
-				<script>
-					includeHTML();
-				</script>
+	</body>
+</html>
