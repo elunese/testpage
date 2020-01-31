@@ -184,7 +184,7 @@
 				-->
 				
 				<!-- Footer -->
-					<div id="inner" data-include="layouts/footer.html"></div>
+					<div id="wrapper" data-include="layouts/footer.html"></div>
 			</div>
 
 		<!-- Scripts -->
