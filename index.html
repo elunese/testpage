@@ -19,10 +19,10 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<div include-html="layouts/header.html"></div>
+					<div data-include="layouts/header.html"></div>
 
 				<!-- Menu -->
-					<div include-html="layouts/nav.html"></div>
+					<div data-include="layouts/nav.html"></div>
 
 				<!-- Banner -->
 					<section id="banner" class="major">
@@ -172,7 +172,7 @@
 				-->
 				
 				<!-- Footer -->
-					<div include-html="layouts/footer.html"></div>
+					<div data-include="layouts/footer.html"></div>
 			</div>
 
 		<!-- Scripts -->
@@ -182,8 +182,22 @@
 			<script src="assets/js/browser.min.js"></script>
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script>includeHTML();</script>
 			<script src="assets/js/main.js"></script>
-
+			<script>
+				$(function(){
+					includeLayout();
+				});
+				function includeLayout(){
+					var includeArea = $('[data-include]');
+					var self, url;
+					$.each(includeArea, function() {
+						self = $(this);
+						url = self.data("include");
+						self.load(url, function() {
+							self.removeAttr("data-include");
+						});
+					});
+				}
+			</script>
 	</body>
 </html>
