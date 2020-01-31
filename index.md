@@ -1,6 +1,6 @@
 ---
 layout: home
-title: null
+title: Home
 landing-title: 'Elunese dev'
 description: null
 image: null
