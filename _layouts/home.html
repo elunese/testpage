@@ -19,22 +19,12 @@
 			<div id="wrapper">
 
 				<!-- Header -->
-					<div data-include="layouts/header.html"></div>
+					{% include header.html %}
+					<!-- <div data-include="layouts/header.html"></div> -->
 
 				<!-- Menu -->
+					{% include nav.html %}
 					<!-- <div data-include="layouts/nav.html"></div> -->
-					<nav id="menu">
-						<ul class="links">
-							<li><a href="index.html">Home</a></li>
-							<li><a href="landing.html">Landing</a></li>
-							<li><a href="generic.html">Generic</a></li>
-							<li><a href="elements.html">Elements</a></li>
-						</ul>
-						<ul class="actions stacked">
-							<li><a href="#" class="button primary fit">Get Started</a></li>
-							<li><a href="#" class="button fit">Log In</a></li>
-						</ul>
-					</nav>
 
 				<!-- Banner -->
 					<section id="banner" class="major">
@@ -184,7 +174,8 @@
 				-->
 				
 				<!-- Footer -->
-					<div id="wrapper" data-include="layouts/footer.html"></div>
+					{% include footer.html %}
+					<!-- <div id="wrapper" data-include="layouts/footer.html"></div> -->
 			</div>
 
 		<!-- Scripts -->
